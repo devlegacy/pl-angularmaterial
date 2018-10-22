@@ -127,6 +127,8 @@ Nota: Un módulo no puede existir de manera aislada, siempre se referencia a otr
   # Recommend
   # --module default to app
   ng generate module material --module app
+  ng generate module shared/material --module app
+  ng generate module shared/material --module app --flat ## test with dry run (material folder is removed) (recommend**)
   ng generate module mars --module app
 ```
 
