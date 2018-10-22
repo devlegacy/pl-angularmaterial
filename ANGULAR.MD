@@ -135,9 +135,12 @@ Nota: Un módulo no puede existir de manera aislada, siempre se referencia a otr
   # --module default to app
   ng generate module material --module app
   ng generate module shared/material --module app
+  ng generate module mars --module app
+
+  ####
   ng generate module shared/material --module app --flat ## test with dry run (material folder is removed) (recommend**)
   ng generate module demo/demo --flat --routing
-  ng generate module mars --module app
+  ng generate module contactmanager
 ```
 
 ### Crear componentes
@@ -151,7 +154,13 @@ Nota: Un módulo no puede existir de manera aislada, siempre se referencia a otr
   ng generate component home --module app
   ng generate component material/material-list/student-item --module material
 
+  ###
   ng generate component demo/buttons
+
+  ng generate component contactmanager/contactmanager-app  --flat
+  ng generate component contactmanager/components/toolbar
+  ng generate component contactmanager/components/main-content
+  ng generate component contactmanager/components/side-nav
 ```
 
 #### Botones

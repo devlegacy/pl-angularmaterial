@@ -1,0 +1,24 @@
+$icon-width: 56px;
+
+.sidenav-toogle {
+  display: none;
+  min-width: $icon-width;
+  padding: 0;
+  margin: 8px;
+  @media (max-width: 720px) {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    width: $icon-width;
+    height: $icon-width;
+
+    color: #fff;
+
+    font-size: 30px;
+    line-height: $icon-width;
+  }
+}
