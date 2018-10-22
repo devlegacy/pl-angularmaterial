@@ -129,6 +129,7 @@ Nota: Un módulo no puede existir de manera aislada, siempre se referencia a otr
   ng generate module material --module app
   ng generate module shared/material --module app
   ng generate module shared/material --module app --flat ## test with dry run (material folder is removed) (recommend**)
+  ng generate module demo/demo --flat --routing
   ng generate module mars --module app
 ```
 
@@ -142,6 +143,8 @@ Nota: Un módulo no puede existir de manera aislada, siempre se referencia a otr
   ng generate component material/material-demo --module material
   ng generate component home --module app
   ng generate component material/material-list/student-item --module material
+
+  ng generate component demo/buttons
 ```
 
 #### Botones

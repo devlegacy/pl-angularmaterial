@@ -1,0 +1,25 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { FexboxComponent } from './fexbox/fexbox.component';
+
+const routes: Routes = [
+  {
+    path: 'buttons',
+    component: ButtonsComponent
+  },
+  {
+    path: 'flexbox',
+    component: FexboxComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'buttons',
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class DemoRoutingModule { }
