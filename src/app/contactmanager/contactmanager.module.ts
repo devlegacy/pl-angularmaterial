@@ -11,6 +11,8 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -34,7 +36,11 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
+  ],
+  providers: [
+    UserService
   ],
   declarations: [ContactmanagerAppComponent, ToolbarComponent, MainContentComponent, SideNavComponent]
 })

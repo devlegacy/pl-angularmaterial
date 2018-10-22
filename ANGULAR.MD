@@ -219,6 +219,8 @@ Modelo de datos + comportamiento
 ```bash
   # Needs providers: [NasaApiService],
   ng generate service shared/services/nasa-api --module app
+
+  ng generate service contactmanager/services/user
 ```
 
 #### Observables
