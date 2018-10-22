@@ -1,7 +1,9 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material';
 
 const SMALL_WIDTH_BREAKPINT = 720;
 
@@ -16,7 +18,9 @@ export class SideNavComponent implements OnInit {
 
   users: Observable<User[]>;
 
-  constructor(zone: NgZone, private _userService: UserService) {
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
+
+  constructor(zone: NgZone, private _userService: UserService, private _router: Router) {
     this._mediaMatcher.addListener(mql =>
       zone.run(() => this._mediaMatcher = <MediaQueryList>mql.target)
     );
@@ -26,8 +30,17 @@ export class SideNavComponent implements OnInit {
     this.users = this._userService.users;
     this._userService.loadAll();
 
-    this.users.subscribe(data => {
-      console.log(data);
+    // this.users.subscribe(data => {
+    //   if(data.length > 0) {
+    //     this._router.navigate(['/contactmanager', data[0].id]);
+    //   }
+    // });
+
+    this._router.events.subscribe( () => {
+      if(this.isScreenSmall()) {
+        // TODO: Close our sidenav
+        this.sidenav.close();
+      }
     });
   }
 
