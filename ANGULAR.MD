@@ -92,6 +92,13 @@
   ng generate @angular/material:material-nav --name=material/main-nav --module material
 ```
 
+### Angular flexlayout
+
+```bash
+  npm install @angular/flex-layout --save
+  # see: https://tburleson-layouts-demos.firebaseapp.com/#/docs
+```
+
 #### Actualizar proyecto de angular
 
 ```bash
