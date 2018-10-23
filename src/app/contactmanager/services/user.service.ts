@@ -34,8 +34,18 @@ export class UserService {
       this.dataStore.users = data;
       this._users.next(Object.assign({}, this.dataStore).users);
     },
-    err => {
-      console.log('Failed to fetch users', err);
+      err => {
+        console.log('Failed to fetch users', err);
+      });
+  }
+
+  addUser(user: User) {
+    return new Promise((resolve, reject) => {
+      user.id = this.dataStore.users.length + 1;
+      this.dataStore.users.push(user);
+
+      this._users.next(Object.assign({}, this.dataStore).users);
+      resolve(user);
     });
   }
 }
