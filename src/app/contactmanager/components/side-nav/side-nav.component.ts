@@ -20,6 +20,9 @@ export class SideNavComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
+  isDarkTheme: boolean= false;
+  dir:string = 'ltr';
+
   constructor(zone: NgZone, private _userService: UserService, private _router: Router) {
     this._mediaMatcher.addListener(mql =>
       zone.run(() => this._mediaMatcher = <MediaQueryList>mql.target)
@@ -46,5 +49,15 @@ export class SideNavComponent implements OnInit {
 
   isScreenSmall(): boolean {
     return this._mediaMatcher.matches;
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.dir = this.dir == 'ltr' ? 'rtl': 'ltr';
+
+    this.sidenav.close().then(() => this.sidenav.open());
   }
 }
